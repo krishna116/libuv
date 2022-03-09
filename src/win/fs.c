@@ -2844,8 +2844,7 @@ void uv_fs_req_cleanup(uv_fs_t* req) {
       uv__free(req->ptr);
   }
 
-  if (req->fs.info.bufs != req->fs.info.bufsml &&
-      ARRAY_SIZE(req->fs.info.bufs) > 0)
+  if (req->fs.info.bufs != req->fs.info.bufsml)
     uv__free(req->fs.info.bufs);
 
   req->path = NULL;
